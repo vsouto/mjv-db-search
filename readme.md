@@ -1,11 +1,13 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## Instruções
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Passo-a-passo para levantar a aplicação em localhost (supondo que seu servidor+php já estejam configurados na máquina):
+
+- clone o código com git
+- instale o composer no seu terminal
+- baixe as dependencias, executando no terminal (dentro da pasta raiz do projeto clonado): composer update
+- levante a database, executando no terminal: php artisan migrate --seed
+- certifique-se de existir o arquivo .env na raiz do projeto, e coloque dentro dele as informações da sua database para este projeto
+- execute a aplicação no navegador. 
 
 ## About Laravel
 
