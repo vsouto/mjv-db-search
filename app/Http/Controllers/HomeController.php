@@ -71,16 +71,22 @@ class HomeController extends Controller
                         return "$val years";
                     })
                 ,*/
-                new DetailsRow(new SymfonyVarDump()), // when clicking on data rows, details will be shown
+                //new DetailsRow(new SymfonyVarDump()), // when clicking on data rows, details will be shown
                 new PaginationControl($input->option('page', 1), 5), // 1 - default page, 5 -- page size
                 new PageSizeSelectControl($input->option('page_size', 5), [2, 5, 10]), // allows to select page size
                 new ColumnSortingControl('id', $input->option('sort')),
-                new ColumnSortingControl('title', $input->option('title')),
+                //new ColumnSortingControl('title', $input->option('title')),
+                new ColumnSortingControl('firstname', $input->option('firstname')),
+                new ColumnSortingControl('lastname', $input->option('lastname')),
+                new ColumnSortingControl('job_title', $input->option('job_title')),
+                new FilterControl('id', FilterOperation::OPERATOR_EQ, $input->option('id')),
                 new FilterControl('title', FilterOperation::OPERATOR_LIKE, $input->option('title')),
+                new FilterControl('firstname', FilterOperation::OPERATOR_LIKE, $input->option('firstname')),
+                new FilterControl('lastname', FilterOperation::OPERATOR_LIKE, $input->option('lastname')),
+                new FilterControl('email', FilterOperation::OPERATOR_LIKE, $input->option('email')),
                 new CsvExport($input->option('csv')), // yep, that's so simple, you have CSV export now
                 new PageTotalsRow([
                     'id' => PageTotalsRow::OPERATION_IGNORE,
-                    'age' => PageTotalsRow::OPERATION_AVG
                 ])
             ]
         );
