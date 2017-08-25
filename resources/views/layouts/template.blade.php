@@ -39,18 +39,7 @@
 </head>
 <body class="page-header-fixed">
 <div class="overlay"></div>
-<div class="menu-wrap">
-    <nav class="profile-menu">
-        <div class="profile"><img src="assets/images/avatar1.png" width="52px" alt="David Green"/><span>David Green</span></div>
-        <div class="profile-menu-list">
-            <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
-            <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
-            <a href="#"><i class="fa fa-envelope"></i><span>Messages</span></a>
-            <a href="#"><i class="fa fa-comment"></i><span>Comments</span></a>
-        </div>
-    </nav>
-    <button class="close-button" id="close-button">Close Menu</button>
-</div>
+
 <form class="search-form" action="#" method="GET">
     <div class="input-group">
         <input type="text" name="search" class="form-control search-input" placeholder="Search...">
@@ -373,21 +362,31 @@
 
 
 <!-- Javascripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/pace-master/pace.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.js') }}"></script>
+<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/uniform/jquery.uniform.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/offcanvasmenueffects/js/classie.js') }}"></script>
+<script src="{{ asset('assets/plugins/offcanvasmenueffects/js/main.js') }}"></script>
+<script src="{{ asset('assets/plugins/waves/waves.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/3d-bold-navigation/js/main.js') }}"></script>
+<script src="{{ asset('assets/plugins/waypoints/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-counterup/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/flot/jquery.flot.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/flot/jquery.flot.time.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/flot/jquery.flot.symbol.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/flot/jquery.flot.resize.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/flot/jquery.flot.tooltip.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/curvedlines/curvedLines.js') }}"></script>
+<script src="{{ asset('assets/plugins/metrojs/MetroJs.min.js') }}"></script>
+<script src="{{ asset('assets/js/modern.min.js') }}"></script>
+<script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
 
-<script src="assets/plugins/jquery/jquery-2.1.3.min.js"></script>
-<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="assets/plugins/pace-master/pace.min.js"></script>
-<script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="assets/plugins/switchery/switchery.min.js"></script>
-<script src="assets/plugins/uniform/jquery.uniform.min.js"></script>
-<script src="assets/plugins/offcanvasmenueffects/js/classie.js"></script>
-<script src="assets/plugins/offcanvasmenueffects/js/main.js"></script>
-<script src="assets/plugins/waves/waves.min.js"></script>
-<script src="assets/plugins/3d-bold-navigation/js/main.js"></script>
-<script src="assets/js/modern.min.js"></script>
 
 </body>
 </html>

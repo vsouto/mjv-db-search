@@ -8,12 +8,14 @@ use ViewComponents\Eloquent\EloquentDataProvider;
 use ViewComponents\Grids\Component\Column;
 use ViewComponents\Grids\Component\ColumnSortingControl;
 use ViewComponents\Grids\Component\CsvExport;
+use ViewComponents\Grids\Component\DetailsRow;
 use ViewComponents\Grids\Component\PageTotalsRow;
 use ViewComponents\Grids\Component\TableCaption;
 use ViewComponents\Grids\Grid;
 use ViewComponents\ViewComponents\Component\Control\FilterControl;
 use ViewComponents\ViewComponents\Component\Control\PageSizeSelectControl;
 use ViewComponents\ViewComponents\Component\Control\PaginationControl;
+use ViewComponents\ViewComponents\Component\Debug\SymfonyVarDump;
 use ViewComponents\ViewComponents\Customization\CssFrameworks\BootstrapStyling;
 use ViewComponents\ViewComponents\Data\Operation\FilterOperation;
 use ViewComponents\ViewComponents\Input\InputSource;
@@ -69,7 +71,7 @@ class HomeController extends Controller
                         return "$val years";
                     })
                 ,*/
-//                new DetailsRow(new SymfonyVarDump()), // when clicking on data rows, details will be shown
+                new DetailsRow(new SymfonyVarDump()), // when clicking on data rows, details will be shown
                 new PaginationControl($input->option('page', 1), 5), // 1 - default page, 5 -- page size
                 new PageSizeSelectControl($input->option('page_size', 5), [2, 5, 10]), // allows to select page size
                 new ColumnSortingControl('id', $input->option('sort')),
