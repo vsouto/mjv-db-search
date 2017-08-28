@@ -76,8 +76,8 @@ class HomeController extends Controller
                 new PageSizeSelectControl($input->option('page_size', 5), [2, 5, 10]), // allows to select page size
                 new ColumnSortingControl('id', $input->option('sort')),
                 //new ColumnSortingControl('title', $input->option('title')),
-                new ColumnSortingControl('firstname', $input->option('firstname')),
-                new ColumnSortingControl('lastname', $input->option('lastname')),
+                //new ColumnSortingControl('firstname', $input->option('firstname')),
+                //new ColumnSortingControl('lastname', $input->option('lastname')),
                 new ColumnSortingControl('job_title', $input->option('job_title')),
                 new FilterControl('id', FilterOperation::OPERATOR_EQ, $input->option('id')),
                 new FilterControl('title', FilterOperation::OPERATOR_LIKE, $input->option('title')),
