@@ -78,12 +78,13 @@ class HomeController extends Controller
                 //new ColumnSortingControl('title', $input->option('title')),
                 //new ColumnSortingControl('firstname', $input->option('firstname')),
                 //new ColumnSortingControl('lastname', $input->option('lastname')),
-                new ColumnSortingControl('job_title', $input->option('job_title')),
+                //new ColumnSortingControl('job_title', $input->option('job_title')),
                 new FilterControl('id', FilterOperation::OPERATOR_EQ, $input->option('id')),
                 new FilterControl('title', FilterOperation::OPERATOR_LIKE, $input->option('title')),
                 new FilterControl('firstname', FilterOperation::OPERATOR_LIKE, $input->option('firstname')),
                 new FilterControl('lastname', FilterOperation::OPERATOR_LIKE, $input->option('lastname')),
                 new FilterControl('email', FilterOperation::OPERATOR_LIKE, $input->option('email')),
+                new FilterControl('job_title', FilterOperation::OPERATOR_LIKE, $input->option('job_title')),
                 new CsvExport($input->option('csv')), // yep, that's so simple, you have CSV export now
                 new PageTotalsRow([
                     'id' => PageTotalsRow::OPERATION_IGNORE,
