@@ -16,6 +16,8 @@ use ViewComponents\ViewComponents\Component\Control\FilterControl;
 use ViewComponents\ViewComponents\Component\Control\PageSizeSelectControl;
 use ViewComponents\ViewComponents\Component\Control\PaginationControl;
 use ViewComponents\ViewComponents\Component\Debug\SymfonyVarDump;
+use ViewComponents\ViewComponents\Component\Html\Tag;
+use ViewComponents\ViewComponents\Component\Part;
 use ViewComponents\ViewComponents\Customization\CssFrameworks\BootstrapStyling;
 use ViewComponents\ViewComponents\Data\Operation\FilterOperation;
 use ViewComponents\ViewComponents\Input\InputSource;
@@ -54,8 +56,8 @@ class HomeController extends Controller
                 new Column('firstname'),
                 new Column('lastname'),
                 new Column('job_title'),
-                new Column('city_id'),
-                new Column('industry_id'),
+                new Column('city'),
+                new Column('industry'),
                 new Column('email'),
                 new Column('linkedin'),
                 new Column('nome_planilha'),
@@ -79,12 +81,36 @@ class HomeController extends Controller
                 //new ColumnSortingControl('firstname', $input->option('firstname')),
                 //new ColumnSortingControl('lastname', $input->option('lastname')),
                 //new ColumnSortingControl('job_title', $input->option('job_title')),
-                new FilterControl('id', FilterOperation::OPERATOR_EQ, $input->option('id')),
-                new FilterControl('title', FilterOperation::OPERATOR_LIKE, $input->option('title')),
-                new FilterControl('firstname', FilterOperation::OPERATOR_LIKE, $input->option('firstname')),
-                new FilterControl('lastname', FilterOperation::OPERATOR_LIKE, $input->option('lastname')),
-                new FilterControl('email', FilterOperation::OPERATOR_LIKE, $input->option('email')),
-                new FilterControl('job_title', FilterOperation::OPERATOR_LIKE, $input->option('job_title')),
+                new Part(new Tag('tr'), 'control_row2', 'table_heading'),
+                new Part(new Tag('td'), 'id-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'title-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'firstname-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'lastname-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'job_title-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'city-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'industry-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'email-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'linkedin-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'nome_planilha-c-row', 'control_row2'),
+                new Part(new Tag('td'), 'hardbounce-c-row', 'control_row2'),
+                (new FilterControl('id', FilterOperation::OPERATOR_EQ, $input->option('id')))
+                    ->setDestinationParentId('id-c-row'),
+                (new FilterControl('title', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('title')))
+                    ->setDestinationParentId('title-c-row'),
+                (new FilterControl('firstname', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('firstname')))
+                    ->setDestinationParentId('firstname-c-row'),
+                (new FilterControl('lastname', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('lastname')))
+                    ->setDestinationParentId('lastname-c-row'),
+                (new FilterControl('email', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('email')))
+                    ->setDestinationParentId('email-c-row'),
+                (new FilterControl('job_title', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('job_title')))
+                    ->setDestinationParentId('job_title-c-row'),
+                (new FilterControl('city', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('city')))
+                    ->setDestinationParentId('city-c-row'),
+                (new FilterControl('industry', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('industry')))
+                    ->setDestinationParentId('industry-c-row'),
+                (new FilterControl('nome_planilha', FilterOperation::OPERATOR_STR_CONTAINS, $input->option('nome_planilha')))
+                    ->setDestinationParentId('nome_planilha-c-row'),
                 new CsvExport($input->option('csv')), // yep, that's so simple, you have CSV export now
                 new PageTotalsRow([
                     'id' => PageTotalsRow::OPERATION_IGNORE,
@@ -95,7 +121,6 @@ class HomeController extends Controller
         //  but also you can add some styling:
         $customization = new BootstrapStyling();
         $customization->apply($grid);
-
 
         return view('home', compact('grid'));
     }
