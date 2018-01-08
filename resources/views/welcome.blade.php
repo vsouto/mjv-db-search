@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://www.mjv.com.br">MJV</a>
+                    <a href="{{ route('home') }}">MJV</a>
                     <a href="https://scode-startup.com">SCODE</a>
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>

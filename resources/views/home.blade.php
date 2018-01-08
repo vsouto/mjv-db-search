@@ -16,6 +16,10 @@
                     <div class="panel panel-white">
                         <div class="panel-heading clearfix">
                             <h4 class="panel-title">MJV Database Search</h4>
+
+                            <div class="text-right">
+                                <button type="button" class="btn btn-info btn-rounded" id="new-contact">New</button>
+                            </div>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -26,9 +30,17 @@
                 </div>
 
             </div><!-- Row -->
-        </div><!-- Main Wrapper -->
-        <div class="page-footer">
-            <p class="no-s">2015 &copy; Modern by Steelcode.</p>
         </div>
-    </div><!-- Page Inner -->
+
+    </div>
+    <!-- Page Inner -->
+@endsection
+
+@section('footer')
+
+    <script>
+        $('#new-contact').click(function(){
+            location.href = '{{ route('companies.create') }}';
+        });
+    </script>
 @endsection

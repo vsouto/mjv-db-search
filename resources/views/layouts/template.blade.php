@@ -366,7 +366,7 @@
 <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/pace-master/pace.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.js') }}"></script>
-<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap-3.3.4.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/uniform/jquery.uniform.min.js') }}"></script>
@@ -387,6 +387,7 @@
 <script src="{{ asset('assets/js/modern.min.js') }}"></script>
 <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
 
+@yield('footer')
 
 </body>
 </html>
