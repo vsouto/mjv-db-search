@@ -6,7 +6,7 @@
             <h3>Dashboard</h3>
             <div class="page-breadcrumb">
                 <ol class="breadcrumb">
-                    <li><a href="{{ route('home') }}">Dashboard</a></li>
+                    <li><a href="{{ route('home') }}">Users</a></li>
                 </ol>
             </div>
         </div>
@@ -48,7 +48,7 @@
 
     <script>
         $('#new-contact').click(function(){
-            location.href = '{{ route('companies.create') }}';
+            location.href = "{{ route('users.create') }}";
         });
     </script>
 
@@ -56,7 +56,7 @@
         $('.btn-delete').click(function(evt){
             evt.preventDefault();
 
-            var url =  '{{ route("companies.destroy",  ":id") }}';
+            var url =  '{{ route("users.destroy",  ":id") }}';
             url = url.replace(':id', $(this).data('id'));
 
             $.ajax({
@@ -67,7 +67,7 @@
                     _method: 'delete'
                 }
             }).done(function() {
-                location.href = "{{ route('home') }}";
+                location.href = "{{ route('users.index') }}";
             });
         });
     </script>

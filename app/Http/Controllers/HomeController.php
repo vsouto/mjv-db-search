@@ -62,6 +62,14 @@ class HomeController extends Controller
                 new Column('linkedin'),
                 new Column('nome_planilha'),
                 new Column('hardbounce'),
+                (new Column('buttons'))
+                    ->setValueCalculator(function($row){
+                        return $row->id;
+                    })
+                    ->setValueFormatter(function($val) {
+                    return "<button data-token=". csrf_token() ." data-id=". $val .
+                            " class=\"btn btn-danger btn-xs btn-delete\"><i class=\"fa fa-trash\"></i> Remover</button>";
+                }),
                 /*(new Column('age'))
                     ->setValueCalculator(function ($row) {
                         return DateTime
@@ -75,7 +83,7 @@ class HomeController extends Controller
                 ,*/
                 //new DetailsRow(new SymfonyVarDump()), // when clicking on data rows, details will be shown
                 new PaginationControl($input->option('page', 1), 5), // 1 - default page, 5 -- page size
-                new PageSizeSelectControl($input->option('page_size', 5), [2, 5, 10]), // allows to select page size
+                new PageSizeSelectControl($input->option('page_size', 100), [10, 50, 100, 500, 1000]), // allows to select page size
                 new ColumnSortingControl('id', $input->option('sort')),
                 //new ColumnSortingControl('title', $input->option('title')),
                 //new ColumnSortingControl('firstname', $input->option('firstname')),

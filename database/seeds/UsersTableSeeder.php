@@ -24,6 +24,6 @@ class UsersTableSeeder extends Seeder
             'password' => \Illuminate\Support\Facades\Hash::make('12345'),
             'email' => 'kleber.junior@mjv.com.br'
         ]);
-
+        
     }
 }

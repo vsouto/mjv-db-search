@@ -39,42 +39,61 @@
                                             <legend>Core Info</legend>
 
                                             <div class="form-group">
-                                                <label class="col-lg-6 control-label">Name</label>
-                                                <div class="col-lg-6">
-                                                    {{ Form::text('name', null, [
-                                                         'class' => 'form-control',
-                                                         'id'    => 'name'
-                                                         ]) }}
+                                                <div class="form-group">
+                                                    <label class="col-lg-6 control-label">Title</label>
+                                                    <div class="col-lg-6">
+                                                        <input class="form-control" id="title" name="title" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <label class="col-lg-6 control-label">First Name</label>
+                                                    <div class="col-lg-6">
+                                                        <input class="form-control" id="firstname" name="firstname" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-lg-6 control-label">Last Name</label>
+                                                    <div class="col-lg-6">
+                                                        <input class="form-control" id="lastname" name="lastname" type="text" required>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
                                                     <label class="col-lg-6 control-label">Email</label>
                                                     <div class="col-lg-6">
-                                                        {{ Form::text('email', null, [
-                                                         'class' => 'form-control',
-                                                         'id'    => 'name'
-                                                         ]) }}
+                                                        <input class="form-control" id="email" name="email" type="email">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-lg-6 control-label">Phone 1</label>
+                                                    <label class="col-lg-6 control-label">Job Title</label>
                                                     <div class="col-lg-6">
-                                                        {{ Form::text('phone1', null, [
-                                                            'class' => 'form-control',
-                                                            'id'    => 'phone1'
-                                                            ]) }}
+                                                        <input class="form-control" id="job_title" name="job_title" type="text" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-lg-6 control-label">Phone 2</label>
+                                                    <label class="col-lg-6 control-label">City</label>
                                                     <div class="col-lg-6">
-                                                        {{ Form::text('phone2', null, [
-                                                            'class' => 'form-control',
-                                                            'id'    => 'phone2'
-                                                            ]) }}
+                                                        <input class="form-control" id="city" name="city" type="text" required>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label class="col-lg-6 control-label">Industry</label>
+                                                    <div class="col-lg-6">
+                                                        <input class="form-control" id="industry" name="industry" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-lg-6 control-label">Linkedin URL</label>
+                                                    <div class="col-lg-6">
+                                                        <input class="form-control" id="linkedin" name="linkedin" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-lg-6 control-label">Hardbounce</label>
+                                                    <div class="col-lg-6">
+                                                        <input class="form-control" id="hardbounce" value="1" name="hardbounce" type="checkbox" >
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </fieldset>
                                 </div>

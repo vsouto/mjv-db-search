@@ -296,6 +296,7 @@
             <ul class="menu accordion-menu">
 
                 <li><a href="{{ route('home') }}" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
+                <li><a href="{{ route('users.index') }}" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Users</p></a></li>
 
             </ul>
         </div><!-- Page Sidebar Inner -->
