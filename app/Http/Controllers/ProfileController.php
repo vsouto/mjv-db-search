@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use ViewComponents\Eloquent\EloquentDataProvider;
 use ViewComponents\Grids\Component\Column;
 use ViewComponents\Grids\Component\ColumnSortingControl;
@@ -38,15 +39,21 @@ class ProfileController extends Controller
                 new Column('id'),
                 new Column('name'),
                 new Column('email'),
-                (new Column('buttons'))
+                (new Column('role'))
+                    ->setValueFormatter(function($val) {
+                        return $val =='1' ? 'User' : 'Admin';
+                    }),
+                (new Column('actions'))
                     ->setValueCalculator(function($row){
                         return $row->id;
                     })
-                    ->setValueFormatter(function($val) {
-                    return "<button data-token=". csrf_token() ." data-id=". $val ." class=\"btn btn-danger btn-xs btn-delete\"><i class=\"fa fa-trash\"></i> Remover</button>";
+                    ->setValueCalculator(function($row) {
+                        if (Auth::user()->role == '2')
+                            return "<button data-token=". csrf_token() ." data-id=". $row->id
+                            ." class=\"btn btn-danger btn-xs btn-delete\"><i class=\"fa fa-trash\"></i> Remover</button>";
                 }),
                 new PaginationControl($input->option('page', 1), 5), // 1 - default page, 5 -- page size
-                new PageSizeSelectControl($input->option('page_size', 10), [10, 50, 100, 500, 1000]), // allows to select page size
+                $this->getPaginationSize($input),
                 new ColumnSortingControl('id', $input->option('sort')),
                 //new ColumnSortingControl('title', $input->option('title')),
                 //new ColumnSortingControl('firstname', $input->option('firstname')),
@@ -103,5 +110,14 @@ class ProfileController extends Controller
         }
 
         return redirect('users');
+    }
+
+    public function getPaginationSize($input)
+    {
+        // Admin?
+        if (Auth::user()->role == '1')
+            return new PageSizeSelectControl($input->option('page_size', 10), [10]); // allows to select page size
+        else
+            return new PageSizeSelectControl($input->option('page_size', 10), [10, 50, 100, 500, 1000]); // allows to select page size
     }
 }
